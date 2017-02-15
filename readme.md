@@ -6,6 +6,7 @@ Piconite is a FREE Open Source Online Learning Platform.
 
 - Built for Organizations, Schools or Individual Educators
 - Administration Dashboard
+- Teacher and Student Dashboards
 - User and Roles Management
 - Flexible Course Builder
 - Course Groups
