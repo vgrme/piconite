@@ -31898,7 +31898,8 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "id": "email",
       "type": "email",
       "name": "email",
-      "placeholder": "Email address"
+      "placeholder": "Username",
+      "required": ""
     }
   }), _vm._v(" "), _c('input', {
     ref: "password",
@@ -31907,7 +31908,8 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "id": "password",
       "type": "password",
       "name": "password",
-      "placeholder": "Password"
+      "placeholder": "Password",
+      "required": ""
     }
   }), _vm._v(" "), _c('button', {
     staticClass: "login-btn",

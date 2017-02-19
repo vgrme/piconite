@@ -11,8 +11,8 @@
                 </li>
             </ul>
         </div>
-        <input ref="email" id="email" type="email" name="email" class="form-control login-input" placeholder="Email address">
-        <input ref="password" id="password" type="password" name="password" class="form-control login-input" placeholder="Password">
+        <input ref="email" id="email" type="email" name="email" class="form-control login-input" placeholder="Username" required>
+        <input ref="password" id="password" type="password" name="password" class="form-control login-input" placeholder="Password" required>
         <button type="submit" class="login-btn">Sign in</button>
       </form>
 </div>

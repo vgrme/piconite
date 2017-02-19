@@ -3,6 +3,7 @@
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
+
 class LaratrustSeeder extends Seeder
 {
     /**
@@ -21,7 +22,7 @@ class LaratrustSeeder extends Seeder
 
         foreach ($config as $key => $modules) {
             // Create a new role
-            $role = \App\Role::create([
+            $role = Piconite\App\Role::create([
                 'name' => $key,
                 'display_name' => ucwords(str_replace("_", " ", $key)),
                 'description' => ucwords(str_replace("_", " ", $key))
@@ -36,7 +37,7 @@ class LaratrustSeeder extends Seeder
                 foreach ($permissions as $p => $perm) {
                     $permissionValue = $mapPermission->get($perm);
 
-                    $permission = \App\Permission::firstOrCreate([
+                    $permission = \Piconite\App\Permission::firstOrCreate([
                         'name' => $permissionValue . '-' . $module,
                         'display_name' => ucfirst($permissionValue) . ' ' . ucfirst($module),
                         'description' => ucfirst($permissionValue) . ' ' . ucfirst($module),
@@ -78,7 +79,7 @@ class LaratrustSeeder extends Seeder
                     foreach ($permissions as $p => $perm) {
                         $permissionValue = $mapPermission->get($perm);
 
-                        $permission = \App\Permission::firstOrCreate([
+                        $permission = \Piconite\App\Permission::firstOrCreate([
                             'name' => $permissionValue . '-' . $module,
                             'display_name' => ucfirst($permissionValue) . ' ' . ucfirst($module),
                             'description' => ucfirst($permissionValue) . ' ' . ucfirst($module),
@@ -107,8 +108,8 @@ class LaratrustSeeder extends Seeder
         DB::table('permission_role')->truncate();
         DB::table('role_user')->truncate();
         \Piconite\User::truncate();
-        \App\Role::truncate();
-        \App\Permission::truncate();
+        \Piconite\App\Role::truncate();
+        \Piconite\App\Permission::truncate();
         DB::statement('SET FOREIGN_KEY_CHECKS = 1');
     }
 }

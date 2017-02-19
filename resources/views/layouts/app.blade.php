@@ -46,7 +46,15 @@
                     <ul class="nav navbar-nav">
                         &nbsp;
                     </ul>
-
+                    <!-- Search Bar -->
+                     @if (!Auth::guest())
+                     <form class="navbar-form navbar-left">
+                        <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                    @endif
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Authentication Links -->
@@ -81,6 +89,13 @@
                 </div>
             </div>
         </nav>
+          <ul class="nav nav-justified nav-pills nav-bottom">
+ <li><a href=""><span class="nav-bottom-li"><i class="fa fa-graduation-cap"></i>&nbsp;My Courses</span></a></li>
+ <li><a href=""><span class="nav-bottom-li"><i class="fa fa-envelope"></i>&nbsp;Inbox</span></a></li>
+ <li><a href=""><span class="nav-bottom-li"><i class="fa fa-trophy"></i>&nbsp;Achievements</span></a></li>
+ <li><a href=""><span class="nav-bottom-li"><i class="fa fa-comments"></i>&nbsp;Discussions</span></a></li>
+ 
+</ul>
 
         @yield('content')
     </div>
