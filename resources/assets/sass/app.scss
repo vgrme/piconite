@@ -19,35 +19,3 @@ nav {
     margin-bottom: 0px !important;  
 }
 
-.nav-bottom {
-    margin-top:0px;
-    height:50px;
-    padding: 0 60px;
-    background: #f6f6f6;
-    z-index: 40;
-    border-bottom: 1px solid #d7d7d7;
-    
-}
-
-.nav-bottom > li {
-    border-left: 1px solid #d7d7d7;
-    border-right: 1px solid transparent;
-    padding:0px;
-     
-      text-transform: uppercase;
-    letter-spacing: 1px;
-  
-    font-weight: 500;
-}
-
-.nav-bottom > li > a:hover {
-    background: #1abc9c;
-    margin: 0px;
-    border-radius: 0px;
-    color: #f5f8fa !important;
-}
-.nav-bottom > li > a {
-    padding: 15px 15px;
-    color: #4d545d !important;
-}
-

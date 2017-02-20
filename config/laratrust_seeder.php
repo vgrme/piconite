@@ -13,6 +13,12 @@ return [
         ],
         'user' => [
             'profile' => 'r,u'
+        ],
+         'student' => [
+            'profile' => 'r,u'
+        ],
+         'instructor' => [
+            'profile' => 'r,u'
         ]
     ],
     'permission_structure' => [

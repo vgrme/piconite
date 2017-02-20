@@ -2,6 +2,6 @@
 
 @section('content')
 <div class="container">
-   <my-login></my-login>
+   <login></login>
 </div>
 @endsection

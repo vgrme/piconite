@@ -1,5 +1,5 @@
 <template>
-      <div class="col-sm-6 col-md-4">
+      <div class="col-sm-4 col-md-4">
     <div class="thumbnail">
       <img v-bind:src="imgsrc" alt="...">
       <div class="caption">
@@ -25,3 +25,8 @@
             
     }
 </script>
+<style>
+  .thumbnail {
+    background-color: #fff !important;
+  }
+</style>

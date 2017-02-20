@@ -68,7 +68,6 @@
                                 </a>
 
                                 <ul class="dropdown-menu" role="menu">
-                                    <li><a href=""><i class="fa fa-graduation-cap"></i> My Courses</a></li>
                                      <li><a href=""><i class="fa fa-user"></i> Profile</a></li>
                                      <li><a href=""><i class="fa fa-envelope"></i> Inbox</a></li>
                                     <li>
@@ -89,13 +88,16 @@
                 </div>
             </div>
         </nav>
-          <ul class="nav nav-justified nav-pills nav-bottom">
- <li><a href=""><span class="nav-bottom-li"><i class="fa fa-graduation-cap"></i>&nbsp;My Courses</span></a></li>
- <li><a href=""><span class="nav-bottom-li"><i class="fa fa-envelope"></i>&nbsp;Inbox</span></a></li>
- <li><a href=""><span class="nav-bottom-li"><i class="fa fa-trophy"></i>&nbsp;Achievements</span></a></li>
- <li><a href=""><span class="nav-bottom-li"><i class="fa fa-comments"></i>&nbsp;Discussions</span></a></li>
- 
-</ul>
+
+        <!-- Display Nav Bottom for student only -->
+         @role('student')
+         <nav-bottom-student></nav-bottom-student>
+         @endrole
+
+          <!-- Display Nav Bottom for Instructor only -->
+         @role('instructor')
+         <nav-bottom-instructor></nav-bottom-instructor>
+         @endrole
 
         @yield('content')
     </div>

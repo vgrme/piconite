@@ -3,6 +3,7 @@
 namespace Piconite\Http\Controllers\Auth;
 
 use Piconite\User;
+use Piconite\App\Role;
 use Piconite\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -62,10 +63,13 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
+        $student_role = Role::where('name','student')->first();
+        $user->attachRole($student_role);
+        return $user;
     }
 }
