@@ -12,14 +12,24 @@ require('./bootstrap');
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
-//import CourseCard from './components/CourseCard.vue';
-//import Login from './components/Login.vue';
 
-Vue.component('login', require('./components/Login.vue'));
-Vue.component('course-card',require('./components/CourseCard.vue'));
-Vue.component('nav-bottom-student',require('./components/student/NavBottomStudent.vue'));
-Vue.component('nav-bottom-instructor',require('./components/instructor/NavBottomInstructor.vue'));
+
+/* START Load Core Components */
+require('./components/core/core');
+/* END Load Core Components */
+
+/* START Load admin Components */
+require('./components/admin/admin');
+/* END Load admin Components */
+
+/* START Load Student Components */
+require('./components/student/student');
+/* END Load Student Components */
+
+/* START Load Instructor Components */
+require('./components/instructor/instructor');
+/* END Load Instructor Components */
 
 const app = new Vue({
-    el: '#app'
+    el: '#piconite-app'
 });

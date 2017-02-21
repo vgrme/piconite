@@ -11249,16 +11249,25 @@ __webpack_require__(33);
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
-//import CourseCard from './components/CourseCard.vue';
-//import Login from './components/Login.vue';
 
-Vue.component('login', __webpack_require__(64));
-Vue.component('course-card', __webpack_require__(38));
-Vue.component('nav-bottom-student', __webpack_require__(57));
-Vue.component('nav-bottom-instructor', __webpack_require__(69));
+/* START Load Core Components */
+__webpack_require__(85);
+/* END Load Core Components */
+
+/* START Load admin Components */
+__webpack_require__(88);
+/* END Load admin Components */
+
+/* START Load Student Components */
+__webpack_require__(86);
+/* END Load Student Components */
+
+/* START Load Instructor Components */
+__webpack_require__(87);
+/* END Load Instructor Components */
 
 var app = new Vue({
-  el: '#app'
+  el: '#piconite-app'
 });
 
 /***/ }),
@@ -12109,38 +12118,7 @@ module.exports = function spread(callback) {
 
 
 /***/ }),
-/* 31 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-/* harmony default export */ __webpack_exports__["default"] = {
-
-    props: ['imgsrc', 'title']
-
-};
-
-/***/ }),
+/* 31 */,
 /* 32 */,
 /* 33 */
 /***/ (function(module, exports, __webpack_require__) {
@@ -31727,95 +31705,10 @@ module.exports = function() {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(10), __webpack_require__(46)(module)))
 
 /***/ }),
-/* 38 */
-/***/ (function(module, exports, __webpack_require__) {
-
-
-/* styles */
-__webpack_require__(61)
-
-var Component = __webpack_require__(9)(
-  /* script */
-  __webpack_require__(31),
-  /* template */
-  __webpack_require__(41),
-  /* scopeId */
-  null,
-  /* cssModules */
-  null
-)
-Component.options.__file = "/Users/academyofmine/Documents/projects/piconite/resources/assets/js/components/CourseCard.vue"
-if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
-if (Component.options.functional) {console.error("[vue-loader] CourseCard.vue: functional components are not supported with templates, they should use render functions.")}
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-71384ef0", Component.options)
-  } else {
-    hotAPI.reload("data-v-71384ef0", Component.options)
-  }
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
+/* 38 */,
 /* 39 */,
 /* 40 */,
-/* 41 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
-    staticClass: "col-sm-4 col-md-4"
-  }, [_c('div', {
-    staticClass: "thumbnail"
-  }, [_c('img', {
-    attrs: {
-      "src": _vm.imgsrc,
-      "alt": "..."
-    }
-  }), _vm._v(" "), _c('div', {
-    staticClass: "caption"
-  }, [_c('h3', [_vm._v(_vm._s(_vm.title))]), _vm._v(" "), _vm._m(0), _vm._v(" "), _c('p', [_vm._v("This course focuses on the fundamentals of Computer Science.")]), _vm._v(" "), _vm._m(1)])])])
-},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
-    staticClass: "progress"
-  }, [_c('div', {
-    staticClass: "progress-bar",
-    staticStyle: {
-      "width": "60%"
-    },
-    attrs: {
-      "role": "progressbar",
-      "aria-valuenow": "60",
-      "aria-valuemin": "0",
-      "aria-valuemax": "100"
-    }
-  }, [_vm._v("\n    60%\n  ")])])
-},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('p', [_c('a', {
-    staticClass: "btn btn-success btn-block",
-    attrs: {
-      "href": "#",
-      "role": "button"
-    }
-  }, [_vm._v("Launch Course")])])
-}]}
-module.exports.render._withStripped = true
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-     require("vue-hot-reload-api").rerender("data-v-71384ef0", module.exports)
-  }
-}
-
-/***/ }),
+/* 41 */,
 /* 42 */,
 /* 43 */
 /***/ (function(module, exports, __webpack_require__) {
@@ -40717,6 +40610,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = {
     mounted: function mounted() {
@@ -40730,7 +40629,23 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
     methods: {
         get_menu_items: function get_menu_items() {
-            return ['My Courses', 'To-Dos', 'Achievements', 'Discussions'];
+            return [{
+                icon: 'fa fa-graduation-cap',
+                menu_text: 'My Courses',
+                sub_menu: ['Course A', 'Course B']
+            }, {
+                icon: 'fa fa-users',
+                menu_text: 'My Achievements',
+                sub_menu: []
+            }, {
+                icon: 'fa fa-book',
+                menu_text: 'Submissions',
+                sub_menu: []
+            }, {
+                icon: 'fa fa-comment',
+                menu_text: 'Discussions',
+                sub_menu: []
+            }];
         }
     }
 };
@@ -40744,7 +40659,7 @@ exports = module.exports = __webpack_require__(36)();
 
 
 // module
-exports.push([module.i, "\n.nav-bottom {\n    margin-top:0px;\n    height:50px;\n    padding: 0 60px;\n    background: #f6f6f6;\n    z-index: 40;\n    border-bottom: 1px solid #d7d7d7;\n}\n.nav-bottom > li {\n    border-left: 1px solid #d7d7d7;\n    border-right: 1px solid transparent;\n    padding:0px;\n     \n      text-transform: uppercase;\n    letter-spacing: 1px;\n  \n    font-weight: 500;\n}\n.nav-bottom > li > a:hover {\n   /* background: #00b1b3;*/\n    background: #3097D1;\n    margin: 0px;\n    border-radius: 0px;\n    color: #f5f8fa !important;\n}\n.nav-bottom > li > a {\n    padding: 15px 15px;\n    color: #4d545d !important;\n}\n\n", ""]);
+exports.push([module.i, "\n.nav-bottom {\n    margin-top:0px;\n    height:50px;\n    padding: 0 60px;\n    background: #f6f6f6;\n    z-index: 40;\n    border-bottom: 1px solid #d7d7d7;\n}\n.nav-bottom > li {\n    border-left: 1px solid #d7d7d7;\n    border-right: 1px solid transparent;\n    padding:0px;\n     \n      text-transform: uppercase;\n    letter-spacing: 1px;\n  \n    font-weight: 500;\n}\n.nav-bottom > li > a:hover {\n   /* background: #00b1b3;*/\n    background: #3097D1;\n    margin: 0px;\n    border-radius: 0px;\n    color: #f5f8fa !important;\n}\n.nav-bottom > li > a {\n    padding: 15px 15px;\n    color: #4d545d !important;\n}\n.dropdown {\n    position: relative;\n    display: inline-block;\n}\n.dropdown-content {\n    display: none;\n    position: absolute;\n    background-color: #f9f9f9;\n   width:100%;\n    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);\n    z-index: 1;\n}\n.dropdown-content a {\n    color: black;\n    padding: 12px 16px;\n    text-decoration: none;\n    display: block;\n}\n.dropdown-content a:hover {background-color: #f1f1f1\n}\n.dropdown:hover .dropdown-content {\n    display: block;\n}\n\n\n", ""]);
 
 // exports
 
@@ -40795,13 +40710,23 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   return _c('ul', {
     staticClass: "nav nav-justified nav-pills nav-bottom"
   }, _vm._l((_vm.menu_items), function(menu_item) {
-    return _c('li', [_c('a', {
+    return _c('li', {
+      staticClass: "dropdown"
+    }, [_c('a', {
       attrs: {
-        "href": ""
+        "href": "#"
       }
     }, [_c('span', [_c('i', {
-      staticClass: "fa fa-graduation-cap"
-    }), _vm._v(" " + _vm._s(menu_item))])])])
+      class: menu_item.icon
+    }), _vm._v(" " + _vm._s(menu_item.menu_text))])]), _vm._v(" "), (menu_item.sub_menu.length >= 1) ? _c('div', {
+      staticClass: "dropdown-content"
+    }, _vm._l((menu_item.sub_menu), function(sub_menu_item) {
+      return _c('a', {
+        attrs: {
+          "href": "#"
+        }
+      }, [_vm._v(_vm._s(sub_menu_item))])
+    })) : _vm._e()])
   }))
 },staticRenderFns: []}
 module.exports.render._withStripped = true
@@ -40839,7 +40764,67 @@ if(false) {
 }
 
 /***/ }),
-/* 60 */
+/* 60 */,
+/* 61 */,
+/* 62 */,
+/* 63 */,
+/* 64 */,
+/* 65 */,
+/* 66 */,
+/* 67 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = {
+    mounted: function mounted() {
+        console.log('Mounted');
+    },
+    data: function data() {
+        return {
+            menu_items: this.get_menu_items()
+        };
+    },
+
+    methods: {
+        get_menu_items: function get_menu_items() {
+            return [{
+                icon: 'fa fa-graduation-cap',
+                menu_text: 'My Courses',
+                sub_menu: ['Course A', 'Course B']
+            }, {
+                icon: 'fa fa-users',
+                menu_text: 'My Students',
+                sub_menu: []
+            }, {
+                icon: 'fa fa-book',
+                menu_text: 'Submissions',
+                sub_menu: []
+            }, {
+                icon: 'fa fa-comment',
+                menu_text: 'Gradebook',
+                sub_menu: []
+            }];
+        }
+    }
+};
+
+/***/ }),
+/* 68 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(36)();
@@ -40847,29 +40832,102 @@ exports = module.exports = __webpack_require__(36)();
 
 
 // module
-exports.push([module.i, "\n.thumbnail {\n  background-color: #fff !important;\n}\n", ""]);
+exports.push([module.i, "\n.nav-bottom {\n    margin-top:0px;\n    height:50px;\n    padding: 0 60px;\n    background: #f6f6f6;\n    z-index: 40;\n    border-bottom: 1px solid #d7d7d7;\n}\n.nav-bottom > li {\n    border-left: 1px solid #d7d7d7;\n    border-right: 1px solid transparent;\n    padding:0px;\n     \n      text-transform: uppercase;\n    letter-spacing: 1px;\n  \n    font-weight: 500;\n}\n.nav-bottom > li > a:hover {\n   /* background: #00b1b3;*/\n    background: #3097D1;\n    margin: 0px;\n    border-radius: 0px;\n    color: #f5f8fa !important;\n}\n.nav-bottom > li > a {\n    padding: 15px 15px;\n    color: #4d545d !important;\n}\n.dropdown {\n    position: relative;\n    display: inline-block;\n}\n.dropdown-content {\n    display: none;\n    position: absolute;\n    background-color: #f9f9f9;\n   width:100%;\n    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);\n    z-index: 1;\n}\n.dropdown-content a {\n    color: black;\n    padding: 12px 16px;\n    text-decoration: none;\n    display: block;\n}\n.dropdown-content a:hover {background-color: #f1f1f1\n}\n.dropdown:hover .dropdown-content {\n    display: block;\n}\n\n\n", ""]);
 
 // exports
 
 
 /***/ }),
-/* 61 */
+/* 69 */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+/* styles */
+__webpack_require__(71)
+
+var Component = __webpack_require__(9)(
+  /* script */
+  __webpack_require__(67),
+  /* template */
+  __webpack_require__(70),
+  /* scopeId */
+  null,
+  /* cssModules */
+  null
+)
+Component.options.__file = "/Users/academyofmine/Documents/projects/piconite/resources/assets/js/components/instructor/NavBottomInstructor.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
+if (Component.options.functional) {console.error("[vue-loader] NavBottomInstructor.vue: functional components are not supported with templates, they should use render functions.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-73bd615e", Component.options)
+  } else {
+    hotAPI.reload("data-v-73bd615e", Component.options)
+  }
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 70 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('ul', {
+    staticClass: "nav nav-justified nav-pills nav-bottom"
+  }, _vm._l((_vm.menu_items), function(menu_item) {
+    return _c('li', {
+      staticClass: "dropdown"
+    }, [_c('a', {
+      attrs: {
+        "href": "#"
+      }
+    }, [_c('span', [_c('i', {
+      class: menu_item.icon
+    }), _vm._v(" " + _vm._s(menu_item.menu_text))])]), _vm._v(" "), (menu_item.sub_menu.length >= 1) ? _c('div', {
+      staticClass: "dropdown-content"
+    }, _vm._l((menu_item.sub_menu), function(sub_menu_item) {
+      return _c('a', {
+        attrs: {
+          "href": "#"
+        }
+      }, [_vm._v(_vm._s(sub_menu_item))])
+    })) : _vm._e()])
+  }))
+},staticRenderFns: []}
+module.exports.render._withStripped = true
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-hot-reload-api").rerender("data-v-73bd615e", module.exports)
+  }
+}
+
+/***/ }),
+/* 71 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(60);
+var content = __webpack_require__(68);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(43)("73aa7e37", content, false);
+var update = __webpack_require__(43)("26d8f0d1", content, false);
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
  if(!content.locals) {
-   module.hot.accept("!!./../../../../node_modules/css-loader/index.js!./../../../../node_modules/vue-loader/lib/style-rewriter.js?id=data-v-71384ef0!./../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./CourseCard.vue", function() {
-     var newContent = require("!!./../../../../node_modules/css-loader/index.js!./../../../../node_modules/vue-loader/lib/style-rewriter.js?id=data-v-71384ef0!./../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./CourseCard.vue");
+   module.hot.accept("!!./../../../../../node_modules/css-loader/index.js!./../../../../../node_modules/vue-loader/lib/style-rewriter.js?id=data-v-73bd615e!./../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./NavBottomInstructor.vue", function() {
+     var newContent = require("!!./../../../../../node_modules/css-loader/index.js!./../../../../../node_modules/vue-loader/lib/style-rewriter.js?id=data-v-73bd615e!./../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./NavBottomInstructor.vue");
      if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
      update(newContent);
    });
@@ -40879,7 +40937,103 @@ if(false) {
 }
 
 /***/ }),
-/* 62 */
+/* 72 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = {};
+
+/***/ }),
+/* 73 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var Component = __webpack_require__(9)(
+  /* script */
+  __webpack_require__(72),
+  /* template */
+  __webpack_require__(74),
+  /* scopeId */
+  null,
+  /* cssModules */
+  null
+)
+Component.options.__file = "/Users/academyofmine/Documents/projects/piconite/resources/assets/js/components/student/SingleCourseStudent.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
+if (Component.options.functional) {console.error("[vue-loader] SingleCourseStudent.vue: functional components are not supported with templates, they should use render functions.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-53ec548f", Component.options)
+  } else {
+    hotAPI.reload("data-v-53ec548f", Component.options)
+  }
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 74 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', [_vm._v("\n    Single course view for student\n    ")])
+},staticRenderFns: []}
+module.exports.render._withStripped = true
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-hot-reload-api").rerender("data-v-53ec548f", module.exports)
+  }
+}
+
+/***/ }),
+/* 75 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = {
+
+    props: ['imgsrc', 'title']
+
+};
+
+/***/ }),
+/* 76 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -40935,7 +41089,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 };
 
 /***/ }),
-/* 63 */
+/* 77 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(36)();
@@ -40943,30 +41097,82 @@ exports = module.exports = __webpack_require__(36)();
 
 
 // module
-exports.push([module.i, "\n.login-box[data-v-38be0154] {\n    background:white;\n    height:400px;\n    width:400px;\n    border-radius:8px;\n    margin-left: 300px;\n    margin-top: 150px;\n}\n.login-btn[data-v-38be0154] {\nheight: 50px;\nmargin-top: 50px;\ndisplay: block;\nwidth: 100%;\nbackground: #396bf7;\ncolor: white;\nfont-size: 20px;\nborder: 1px solid #396bf7;\nborder-radius: 5px;\n}\n.login-input[data-v-38be0154] {\nmargin-bottom: 10px;\nheight: 50px;\nborder-radius: 5px;\n}\n.login-errors[data-v-38be0154] {\n    list-style:none;\n}\n.form-signin[data-v-38be0154] {\npadding: 20px;\nmargin: 0 auto;\n}\n.form-signin-heading[data-v-38be0154] {\n    margin-bottom: 20px;\n    text-align: center;\n}\n", ""]);
+exports.push([module.i, "\n.thumbnail {\n  background-color: #fff !important;\n}\n", ""]);
 
 // exports
 
 
 /***/ }),
-/* 64 */
+/* 78 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(36)();
+// imports
+
+
+// module
+exports.push([module.i, "\n.login-box[data-v-9d4dfa44] {\n    background:white;\n    height:400px;\n    width:400px;\n    border-radius:8px;\n    margin-left: 300px;\n    margin-top: 150px;\n}\n.login-btn[data-v-9d4dfa44] {\nheight: 50px;\nmargin-top: 50px;\ndisplay: block;\nwidth: 100%;\nbackground: #396bf7;\ncolor: white;\nfont-size: 20px;\nborder: 1px solid #396bf7;\nborder-radius: 5px;\n}\n.login-input[data-v-9d4dfa44] {\nmargin-bottom: 10px;\nheight: 50px;\nborder-radius: 5px;\n}\n.login-errors[data-v-9d4dfa44] {\n    list-style:none;\n}\n.form-signin[data-v-9d4dfa44] {\npadding: 20px;\nmargin: 0 auto;\n}\n.form-signin-heading[data-v-9d4dfa44] {\n    margin-bottom: 20px;\n    text-align: center;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 79 */
 /***/ (function(module, exports, __webpack_require__) {
 
 
 /* styles */
-__webpack_require__(66)
+__webpack_require__(83)
 
 var Component = __webpack_require__(9)(
   /* script */
-  __webpack_require__(62),
+  __webpack_require__(75),
   /* template */
-  __webpack_require__(65),
+  __webpack_require__(81),
   /* scopeId */
-  "data-v-38be0154",
+  null,
   /* cssModules */
   null
 )
-Component.options.__file = "/Users/academyofmine/Documents/projects/piconite/resources/assets/js/components/Login.vue"
+Component.options.__file = "/Users/academyofmine/Documents/projects/piconite/resources/assets/js/components/core/CourseCard.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
+if (Component.options.functional) {console.error("[vue-loader] CourseCard.vue: functional components are not supported with templates, they should use render functions.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-7c5a98b4", Component.options)
+  } else {
+    hotAPI.reload("data-v-7c5a98b4", Component.options)
+  }
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 80 */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+/* styles */
+__webpack_require__(84)
+
+var Component = __webpack_require__(9)(
+  /* script */
+  __webpack_require__(76),
+  /* template */
+  __webpack_require__(82),
+  /* scopeId */
+  "data-v-9d4dfa44",
+  /* cssModules */
+  null
+)
+Component.options.__file = "/Users/academyofmine/Documents/projects/piconite/resources/assets/js/components/core/Login.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] Login.vue: functional components are not supported with templates, they should use render functions.")}
 
@@ -40977,9 +41183,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-38be0154", Component.options)
+    hotAPI.createRecord("data-v-9d4dfa44", Component.options)
   } else {
-    hotAPI.reload("data-v-38be0154", Component.options)
+    hotAPI.reload("data-v-9d4dfa44", Component.options)
   }
 })()}
 
@@ -40987,7 +41193,56 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 65 */
+/* 81 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "col-sm-4 col-md-4"
+  }, [_c('div', {
+    staticClass: "thumbnail"
+  }, [_c('img', {
+    attrs: {
+      "src": _vm.imgsrc,
+      "alt": "..."
+    }
+  }), _vm._v(" "), _c('div', {
+    staticClass: "caption"
+  }, [_c('h3', [_vm._v(_vm._s(_vm.title))]), _vm._v(" "), _vm._m(0), _vm._v(" "), _c('p', [_vm._v("This course focuses on the fundamentals of Computer Science.")]), _vm._v(" "), _vm._m(1)])])])
+},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "progress"
+  }, [_c('div', {
+    staticClass: "progress-bar",
+    staticStyle: {
+      "width": "60%"
+    },
+    attrs: {
+      "role": "progressbar",
+      "aria-valuenow": "60",
+      "aria-valuemin": "0",
+      "aria-valuemax": "100"
+    }
+  }, [_vm._v("\n    60%\n  ")])])
+},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('p', [_c('a', {
+    staticClass: "btn btn-success btn-block",
+    attrs: {
+      "href": "#",
+      "role": "button"
+    }
+  }, [_vm._v("Launch Course")])])
+}]}
+module.exports.render._withStripped = true
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-hot-reload-api").rerender("data-v-7c5a98b4", module.exports)
+  }
+}
+
+/***/ }),
+/* 82 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -41044,28 +41299,28 @@ module.exports.render._withStripped = true
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-     require("vue-hot-reload-api").rerender("data-v-38be0154", module.exports)
+     require("vue-hot-reload-api").rerender("data-v-9d4dfa44", module.exports)
   }
 }
 
 /***/ }),
-/* 66 */
+/* 83 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(63);
+var content = __webpack_require__(77);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(43)("366045e6", content, false);
+var update = __webpack_require__(43)("3861652d", content, false);
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
  if(!content.locals) {
-   module.hot.accept("!!./../../../../node_modules/css-loader/index.js!./../../../../node_modules/vue-loader/lib/style-rewriter.js?id=data-v-38be0154&scoped=true!./../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Login.vue", function() {
-     var newContent = require("!!./../../../../node_modules/css-loader/index.js!./../../../../node_modules/vue-loader/lib/style-rewriter.js?id=data-v-38be0154&scoped=true!./../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Login.vue");
+   module.hot.accept("!!./../../../../../node_modules/css-loader/index.js!./../../../../../node_modules/vue-loader/lib/style-rewriter.js?id=data-v-7c5a98b4!./../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./CourseCard.vue", function() {
+     var newContent = require("!!./../../../../../node_modules/css-loader/index.js!./../../../../../node_modules/vue-loader/lib/style-rewriter.js?id=data-v-7c5a98b4!./../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./CourseCard.vue");
      if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
      update(newContent);
    });
@@ -41075,7 +41330,59 @@ if(false) {
 }
 
 /***/ }),
-/* 67 */
+/* 84 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(78);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(43)("23be4435", content, false);
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!./../../../../../node_modules/css-loader/index.js!./../../../../../node_modules/vue-loader/lib/style-rewriter.js?id=data-v-9d4dfa44&scoped=true!./../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Login.vue", function() {
+     var newContent = require("!!./../../../../../node_modules/css-loader/index.js!./../../../../../node_modules/vue-loader/lib/style-rewriter.js?id=data-v-9d4dfa44&scoped=true!./../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Login.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 85 */
+/***/ (function(module, exports, __webpack_require__) {
+
+Vue.component('login', __webpack_require__(80));
+Vue.component('course-card', __webpack_require__(79));
+
+/***/ }),
+/* 86 */
+/***/ (function(module, exports, __webpack_require__) {
+
+Vue.component('nav-bottom-student', __webpack_require__(57));
+Vue.component('single-course-student', __webpack_require__(73));
+
+/***/ }),
+/* 87 */
+/***/ (function(module, exports, __webpack_require__) {
+
+Vue.component('nav-bottom-instructor', __webpack_require__(69));
+
+/***/ }),
+/* 88 */
+/***/ (function(module, exports, __webpack_require__) {
+
+Vue.component('nav-bottom-instructor', __webpack_require__(91));
+
+/***/ }),
+/* 89 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -41100,13 +41407,25 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
     methods: {
         get_menu_items: function get_menu_items() {
-            return ['My Courses', 'My Students', 'Submissions', 'Discussions'];
+            return [{
+                icon: 'fa fa-user',
+                menu_text: 'Users'
+            }, {
+                icon: 'fa fa-book',
+                menu_text: 'Settings'
+            }, {
+                icon: 'fa fa-graduation-cap',
+                menu_text: 'Courses'
+            }, {
+                icon: 'fa fa-comment',
+                menu_text: 'Gradebook'
+            }];
         }
     }
 };
 
 /***/ }),
-/* 68 */
+/* 90 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(36)();
@@ -41120,26 +41439,26 @@ exports.push([module.i, "\n.nav-bottom {\n    margin-top:0px;\n    height:50px;\
 
 
 /***/ }),
-/* 69 */
+/* 91 */
 /***/ (function(module, exports, __webpack_require__) {
 
 
 /* styles */
-__webpack_require__(71)
+__webpack_require__(93)
 
 var Component = __webpack_require__(9)(
   /* script */
-  __webpack_require__(67),
+  __webpack_require__(89),
   /* template */
-  __webpack_require__(70),
+  __webpack_require__(92),
   /* scopeId */
   null,
   /* cssModules */
   null
 )
-Component.options.__file = "/Users/academyofmine/Documents/projects/piconite/resources/assets/js/components/instructor/NavBottomInstructor.vue"
+Component.options.__file = "/Users/academyofmine/Documents/projects/piconite/resources/assets/js/components/admin/NavBottomAdmin.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
-if (Component.options.functional) {console.error("[vue-loader] NavBottomInstructor.vue: functional components are not supported with templates, they should use render functions.")}
+if (Component.options.functional) {console.error("[vue-loader] NavBottomAdmin.vue: functional components are not supported with templates, they should use render functions.")}
 
 /* hot reload */
 if (false) {(function () {
@@ -41148,9 +41467,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-73bd615e", Component.options)
+    hotAPI.createRecord("data-v-255e9366", Component.options)
   } else {
-    hotAPI.reload("data-v-73bd615e", Component.options)
+    hotAPI.reload("data-v-255e9366", Component.options)
   }
 })()}
 
@@ -41158,7 +41477,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 70 */
+/* 92 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -41170,36 +41489,36 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         "href": ""
       }
     }, [_c('span', [_c('i', {
-      staticClass: "fa fa-graduation-cap"
-    }), _vm._v(" " + _vm._s(menu_item))])])])
+      class: menu_item.icon
+    }), _vm._v(" " + _vm._s(menu_item.menu_text))])])])
   }))
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-     require("vue-hot-reload-api").rerender("data-v-73bd615e", module.exports)
+     require("vue-hot-reload-api").rerender("data-v-255e9366", module.exports)
   }
 }
 
 /***/ }),
-/* 71 */
+/* 93 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(68);
+var content = __webpack_require__(90);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(43)("26d8f0d1", content, false);
+var update = __webpack_require__(43)("e0adfeda", content, false);
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
  if(!content.locals) {
-   module.hot.accept("!!./../../../../../node_modules/css-loader/index.js!./../../../../../node_modules/vue-loader/lib/style-rewriter.js?id=data-v-73bd615e!./../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./NavBottomInstructor.vue", function() {
-     var newContent = require("!!./../../../../../node_modules/css-loader/index.js!./../../../../../node_modules/vue-loader/lib/style-rewriter.js?id=data-v-73bd615e!./../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./NavBottomInstructor.vue");
+   module.hot.accept("!!./../../../../../node_modules/css-loader/index.js!./../../../../../node_modules/vue-loader/lib/style-rewriter.js?id=data-v-255e9366!./../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./NavBottomAdmin.vue", function() {
+     var newContent = require("!!./../../../../../node_modules/css-loader/index.js!./../../../../../node_modules/vue-loader/lib/style-rewriter.js?id=data-v-255e9366!./../../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./NavBottomAdmin.vue");
      if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
      update(newContent);
    });

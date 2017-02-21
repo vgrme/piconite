@@ -1,6 +1,12 @@
 <template>
      <ul class="nav nav-justified nav-pills nav-bottom">
-         <li v-for="menu_item in menu_items"><a href=""><span><i class="fa fa-graduation-cap"></i>&nbsp;{{menu_item}}</span></a></li>
+         <li class="dropdown" v-for="menu_item in menu_items">
+             <a href="#"><span><i :class="menu_item.icon"></i>&nbsp;{{menu_item.menu_text}}</span>
+             </a>
+              <div v-if="menu_item.sub_menu.length >= 1" class="dropdown-content">
+    <a href="#" v-for="sub_menu_item in menu_item.sub_menu">{{ sub_menu_item }}</a>
+  </div>
+             </li>
  
 </ul>
 </template>
@@ -17,7 +23,28 @@
         },
         methods: {
             get_menu_items() {
-                return ['My Courses', 'My Students','Submissions','Discussions']
+                return [
+                    {
+                        icon: 'fa fa-graduation-cap',
+                        menu_text: 'My Courses',
+                        sub_menu: ['Course A', 'Course B']
+                    },
+                     {
+                        icon: 'fa fa-users',
+                        menu_text: 'My Students',
+                        sub_menu: []
+                    },
+                     {
+                        icon: 'fa fa-book',
+                        menu_text: 'Submissions',
+                          sub_menu: []
+                    },
+                     {
+                        icon: 'fa fa-comment',
+                        menu_text: 'Gradebook',
+                          sub_menu: []
+                    }
+                    ]
             }
         }
     }
@@ -56,5 +83,32 @@
     padding: 15px 15px;
     color: #4d545d !important;
 }
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+    }
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+   width:100%;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
 
 </style>

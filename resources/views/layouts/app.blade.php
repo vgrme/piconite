@@ -22,7 +22,7 @@
     <script src="https://use.fontawesome.com/21e8647287.js"></script>
 </head>
 <body>
-    <div id="app">
+    <div id="piconite-app">
         <nav class="navbar navbar-default navbar-static-top">
             <div class="container">
                 <div class="navbar-header">
